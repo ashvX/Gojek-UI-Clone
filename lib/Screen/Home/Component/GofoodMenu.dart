@@ -28,13 +28,18 @@ class GofoodMenu extends StatelessWidget {
                       .bodyText1
                       .copyWith(fontSize: 13),
                 ),
-                Text(
-                  "Lihat Semua",
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText1
-                      .copyWith(fontSize: 11, color: GreenColor),
-                )
+                InkWell(
+                  child: Text(
+                    "Lihat Semua",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1
+                        .copyWith(fontSize: 11, color: GreenColor),
+                  ),
+                  onTap: (){
+                    print('object');
+                  },
+                ),
               ],
             ),
           ),
@@ -45,11 +50,26 @@ class GofoodMenu extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: <Widget>[
-                ImageScroll(imgpath: "assets/images/MieAyam.jpg", text: "Mie Ayam",),
-                ImageScroll(imgpath: "assets/images/NasiGoreng.jpg", text: "Nasi Goreng",),
-                ImageScroll(imgpath: "assets/images/Kwetiausapi.jpg", text: "Kwetiau Goreng",),
-                ImageScroll(imgpath: "assets/images/Bihun.jpg", text: "Bihun Goreng",),
-                ImageScroll(imgpath: "assets/images/Pempek.jpg", text: "Pempek Palembang",),
+                ImageScroll(
+                  imgpath: "assets/images/MieAyam.jpg",
+                  text: "Mie Ayam",
+                ),
+                ImageScroll(
+                  imgpath: "assets/images/NasiGoreng.jpg",
+                  text: "Nasi Goreng",
+                ),
+                ImageScroll(
+                  imgpath: "assets/images/Kwetiausapi.jpg",
+                  text: "Kwetiau Goreng",
+                ),
+                ImageScroll(
+                  imgpath: "assets/images/Bihun.jpg",
+                  text: "Bihun Goreng",
+                ),
+                ImageScroll(
+                  imgpath: "assets/images/Pempek.jpg",
+                  text: "Pempek Palembang",
+                ),
               ],
             ),
           )
@@ -62,28 +82,33 @@ class GofoodMenu extends StatelessWidget {
 class ImageScroll extends StatelessWidget {
   final String imgpath;
   final text;
+
   const ImageScroll({
-    Key key, this.imgpath, this.text,
+    Key key,
+    this.imgpath,
+    this.text,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right:14),
+      padding: const EdgeInsets.only(right: 14),
       child: Column(
         children: <Widget>[
           Container(
-            width: 123,
-            height: 123,
+            width: 120,
+            height: 120,
             decoration: new BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(imgpath),
-                  fit: BoxFit.cover),
+                  image: AssetImage(imgpath), fit: BoxFit.cover),
               borderRadius: BorderRadius.circular(4),
             ),
           ),
-          SizedBox(height:6),
-          Text(text,style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 11),)
+          SizedBox(height: 6),
+          Text(
+            text,
+            style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 11),
+          )
         ],
       ),
     );
